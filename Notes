@@ -1,0 +1,57 @@
+###两数间最大值
+	 	max=(a+b+abs(a-b))/2
+	 	三数间类推
+
+###while的判断条件
+		while(cin >> x,x)——逗号表示最终值为最后一个值即x
+		while(cin >> x)——读到结束时返回false
+		while(scanf("%d",&x)!=-1)——scanf函数读取结束时返回-1
+		while(~scanf("%d",&x))——与上面等价
+
+###scanf不会自动过滤空格、回车、tab（cin可以）
+		故需手动过滤，如scanf("%d %c",&k,&t),scanf("%d\n%c",&k,&t)
+		也可scanf("A = %d , B = %d ",&a,&b)——即输入A = 2 , B = 3这类复杂语句时便利
+
+###若只需要n次循环，则除了for语句外，还可以用while
+		如while(n--)
+
+###曼哈顿距离
+		abs(x1-x2)+abs(y1-y2)
+
+###int型的范围为2*10^9——即20亿
+		long long——%lld
+
+###网格类题目，遍历领域数据时可以定义偏移量数组
+		即int dx[]={-1,0,1,0},dy[]={0,1,0,-1};		//上、下、左、右
+		则可利用以下代码实现遍历：
+		int x=0,y=0,d=1;
+		for(int i=1;i<=n*m;i++) 
+		{ 
+			q[x][y]=i; 
+			int a=x+dx[d],b=y+dy[d];					//新坐标
+			if(a<0||a>=n||b<0||b>=m||q[a][b])		//出界条件
+			{ 
+				d=(d+1)%4; 		//调整偏移量
+				a=x+dx[d],b=y+dy[d]; 
+			} 
+			x=a,y=b; 
+		}
+
+###fgets函数会读取回车
+		fgets(str,n,stdin);
+
+###for(auto c:a) b=b+c+' ';
+		将a字符串中的每个字符之间加上空格后存入b字符串中
+		auto &c:a——加上取址符号后，改变c可改变a本身
+
+###第一类双指针算法
+		for(int i=0;i<str.size();i++)
+		{
+				j=i;
+				while(j<str.size()&&str[i]==str[j])	j++;	//指针j移动条件
+				//一系列操作
+				i=j-1		//因以此循环结束后会执行i++操作
+		}
+
+        
+		
